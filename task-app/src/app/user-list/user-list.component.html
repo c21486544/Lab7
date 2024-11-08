@@ -1,0 +1,23 @@
+<div class="user-list">
+    <div class="search-container">
+      <input 
+        type="text" 
+        placeholder="Filter by city" 
+        [(ngModel)]="searchText" 
+        (input)="filterUsers()"
+      />
+      <button (click)="onSearch()">Search</button>
+    </div>
+
+    <ul>
+      <li *ngFor="let user of filteredUsers">
+        <div class="user-card">
+          <img [src]="user.profilePic" alt="Profile picture of {{ user.name }}" class="user-profile-pic" />
+          <h3><a [routerLink]="['/details', user.name]">{{ user.name }}</a></h3>
+          <p>{{ user.city }}</p>
+        </div>
+      </li>
+    </ul>
+</div>
+  
+  
